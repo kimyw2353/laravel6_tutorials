@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route ::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizzas_if', function () {
+Route ::get('/pizzas_if', function () {
     //get data form database
     $pizza = [
         'type' => 'hawaiian',
@@ -27,11 +27,24 @@ Route::get('/pizzas_if', function () {
     //return ['name'=>'veg pizzas', 'base'=>'classic']; --json 형식으로 출력
 });
 
-Route::get('/pizzas', function () {
+Route ::get('/pizzas', function () {
     $pizzas = [
         ['type' => 'hawaiian', 'base' => 'cheesy crust'],
         ['type' => 'volcano', 'base' => 'garlic crust'],
         ['type' => 'veg supreme', 'base' => 'thin & crispy']
     ];
-    return view('pizzas', ['pizzas'=>$pizzas]);
+
+    $name = request('name');
+    $age = request('age');
+
+    return view('pizzas', [
+        'pizzas' => $pizzas,
+        'name' => $name,
+        'age' => $age
+    ]);
+});
+
+Route ::get('/pizzas/{id}', function ($id) {
+
+    return view('details', ['id'=>$id]);
 });

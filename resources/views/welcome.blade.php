@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Pizza House<br>
+                    The North's Best Pizzas
                 </div>
 
                 <div class="links">

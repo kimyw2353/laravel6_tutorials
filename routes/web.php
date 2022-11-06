@@ -27,24 +27,7 @@ Route ::get('/pizzas_if', function () {
     //return ['name'=>'veg pizzas', 'base'=>'classic']; --json 형식으로 출력
 });
 
-Route ::get('/pizzas', function () {
-    $pizzas = [
-        ['type' => 'hawaiian', 'base' => 'cheesy crust'],
-        ['type' => 'volcano', 'base' => 'garlic crust'],
-        ['type' => 'veg supreme', 'base' => 'thin & crispy']
-    ];
-
-    $name = request('name');
-    $age = request('age');
-
-    return view('pizzas', [
-        'pizzas' => $pizzas,
-        'name' => $name,
-        'age' => $age
-    ]);
-});
-
-Route ::get('/pizzas/{id}', function ($id) {
-
-    return view('details', ['id'=>$id]);
-});
+Route ::get('/pizzas', 'PizzaController@index');
+Route ::get('/pizzas/create', 'PizzaController@create');
+Route ::post('/pizzas', 'PizzaController@store');
+Route ::get('/pizzas/{id}', 'PizzaController@show');

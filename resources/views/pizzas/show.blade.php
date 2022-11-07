@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="wrapper pizza-details">
@@ -17,5 +17,5 @@
             <button>Complete Order</button>
         </form>
     </div>
-    <a href="/pizzas" class="back"><- Back to all pizzas</a>
+    <a href="{{ route('pizzas.show', $pizza->id) }}" class="back"><- Back to all pizzas</a>
 @endsection

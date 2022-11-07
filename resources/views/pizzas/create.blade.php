@@ -1,11 +1,11 @@
-@extends('layout.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="wrapper create-pizza">
         <h1>Create a New Pizza</h1>
         <form action="/pizzas" method="POST">
             @csrf <!--cross site request forgery-->
-            <lable for="name">Your name: </lable>
+            <lable for="name">Your name:</lable>
             <input type="text" id="name" name="name">
             <label for="type">Choose pizza type: </label>
             <select name="type" id="type">

@@ -1,42 +1,17 @@
-@extends('layout.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="flex-center position-ref full-height">
         <div class="content">
-            <div class="title m-b-md">
-                Pizza List
+            <div class="wrapper pizza-index">
+                <h1>Pizza Orders</h1>
+                @foreach($pizzas as $pizza)
+                    <div class="pizza-item">
+                        <img src="/img/pizza.png" alt="pizza icon">
+                        <h4><a href="/pizzas/{{ $pizza->id }}">{{ $pizza->name }}</a></h4>
+                    </div>
+                @endforeach
             </div>
-            {{--                 <div style="display: none"> --}}
-            {{--                     <p>{{$type}} - {{$base}} - {{$price}}$</p> --}}
-            {{--                     @if($price > 15) --}}
-            {{--                         <p>this pizza is expensive</p> --}}
-            {{--                     @elseif($price < 5) --}}
-            {{--                         <p>this pizza is cheap</p> --}}
-            {{--                     @else --}}
-            {{--                         <p>this pizza is normally priced</p> --}}
-            {{--                     @endif --}}
-
-            {{--                     @unless($base == 'cheesy crust') --}}
-            {{--                         <p>you don't have a cheesy crust</p> --}}
-            {{--                     @endunless --}}
-
-            {{--                     @php --}}
-            {{--                         $name = 'shoun'; --}}
-            {{--                         echo($name); --}}
-            {{--                     @endphp --}}
-            {{--                 </div> --}}
-            {{--                @for($i = 0; $i < 5; $i++)--}}
-            {{--                    <p>the value of i is {{ $i }}</p>--}}
-            {{--                @endfor--}}
-            {{--                @for($i = 0; $i < count($pizzas); $i++)--}}
-            {{--                    <p>{{ $pizzas[$i]['type'] }}</p>--}}
-            {{--                @endfor--}}
-
-            @foreach($pizzas as $pizza)
-                <div>
-                    {{ $pizza->name }} - {{ $pizza->type }} - {{ $pizza->base }}
-                </div>
-            @endforeach
         </div>
     </div>
 @endsection

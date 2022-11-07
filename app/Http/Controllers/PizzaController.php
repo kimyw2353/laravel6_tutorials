@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Pizza;
 use Illuminate\Support\Facades\Log;
 
 class PizzaController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-
-        //$pizzas = Pizza::all();
-        //$pizzas = Pizza::orderBy('name')->get();
-        //$pizzas = Pizza::where('type', 'hawaiian')->get();
         $pizzas = Pizza ::latest() -> get();
 
         return view('pizzas.index', [

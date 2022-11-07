@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.layout')
 
 @section('content')
     <div class="flex-center position-ref full-height">
@@ -22,7 +22,12 @@
                 The North's Best Pizzas
             </div>
             <p class="mssg">{{ session('mssg') }}</p>
-            <a href="/pizzas/create">Order a Pizza</a>
+            <a href="{{ route('pizzas.create') }}">Order a Pizza</a>
+            <a href="{{ route('pizzas.index') }}">Pizza Orders</a> <br>
+            <a href="{{ route('kebabs.create') }}">Order a Kebab</a>
+            <a href="{{ route('kebabs.index') }}">Kebab Orders</a>
+
+
         </div>
     </div>
 @endsection

@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Routing\Route;
+
 Route ::get('/', function () {
     return view('welcome');
 });
@@ -27,8 +29,19 @@ Route ::get('/pizzas_if', function () {
     //return ['name'=>'veg pizzas', 'base'=>'classic']; --json 형식으로 출력
 });
 
-Route ::get('/pizzas', 'PizzaController@index');
-Route ::get('/pizzas/create', 'PizzaController@create');
-Route ::post('/pizzas', 'PizzaController@store');
-Route ::get('/pizzas/{id}', 'PizzaController@show');
-Route ::delete('/pizzas/{id}', 'PizzaController@destroy');
+// Pizza
+Route ::get('/pizzas', 'PizzaController@index')->name('pizzas.index')->middleware('auth');
+Route ::get('/pizzas/create', 'PizzaController@create')->name('pizzas.create');
+Route ::post('/pizzas', 'PizzaController@store')->name('pizzas.store');
+Route ::get('/pizzas/{id}', 'PizzaController@show')->name('pizzas.show')->middleware('auth');
+Route ::delete('/pizzas/{id}', 'PizzaController@destroy')->name('pizzas.destroy')->middleware('auth');
+
+// Kebab
+Route::get('/kebabs', 'KebabController@index');
+
+
+Auth::routes([
+    'register' => false
+]);
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,4 +1,4 @@
-성@extends('layout.layout')
+@extends('layout.layout')
 
 @section('content')
     <div class="wrapper create-pizza">
@@ -20,6 +20,13 @@
                 <option value="thin & crispy">thin & crispy</option>
                 <option value="thick">thick</option>
             </select>
+            <fieldset>
+                <label for="">Extra toppings : </label>
+                <input type="checkbox" name="toppings[]" value="mushrooms">Mushrooms<br>
+                <input type="checkbox" name="toppings[]" value="peppers">Peppers<br>
+                <input type="checkbox" name="toppings[]" value="garlic">Garlic<br>
+                <input type="checkbox" name="toppings[]" value="olives">Olives<br>
+            </fieldset>
             <input type="submit" value="Order Pizza">
         </form>
     </div>
